@@ -10,4 +10,5 @@ function _ln() {
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
 
+_ln xinitrc ~/.xinitrc
 

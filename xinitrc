@@ -1,0 +1,18 @@
+envfile="$HOME/.gnupg/gpg-agent.env"
+if [[ -e "${envfile}" ]] && kill -0 $(grep GPG_AGENT_INFO "${envfile}" | cut -d: -f 2) 2>/dev/null; then
+    eval "$(cat "${envfile}")"
+else
+    eval "$(gpg-agent --daemon --enable-ssh-support --write-env-file "${envfile}")"
+fi
+export GPG_AGENT_INFO
+export SSH_AUTH_SOCK
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+desktop_env='plasma'
+export DESKTOP_SESSION=${desktop_env}
+export XDG_CURRENT_DESKTOP=${desktop_env}
+
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session i3 ; logout
+
