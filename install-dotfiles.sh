@@ -10,6 +10,6 @@ function _ln() {
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
 
-_ln i3 ~/.i3
+_ln i3 ~/.config/i3
 _ln xinitrc ~/.xinitrc
 
