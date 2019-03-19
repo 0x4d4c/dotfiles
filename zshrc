@@ -23,3 +23,9 @@ zstyle ':prezto:*:*' color 'yes'
 eval $(dircolors ${HOME}/.config/dircolors/config)
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
+# == aliases ==
+#
+for f in ${HOME}/.zshrc.d/aliases.d/*.zsh; do
+  source "${f}"
+done
+
