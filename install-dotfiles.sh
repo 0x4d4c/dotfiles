@@ -11,6 +11,7 @@ mkdir -p ~/.config
 mkdir -p ~/.local/bin
 
 _ln dircolors ~/.config/dircolors
+_ln git/config ~/.gitconfig
 _ln i3 ~/.config/i3
 _ln rofi ~/.config/rofi
 _ln xinitrc ~/.xinitrc

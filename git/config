@@ -1,0 +1,13 @@
+[user]
+    name = Martin Lambertz
+
+[alias]
+    co = checkout
+    st = status
+
+[credential]
+    helper = /usr/bin/git-credential-libsecret
+
+[gpg]
+    program = gpg2
+
