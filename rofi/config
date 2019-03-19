@@ -1,0 +1,6 @@
+rofi.modi:        combi
+rofi.combi-modi:  drun,run
+rofi.matching:    fuzzy
+rofi.show-icons:  true
+rofi.theme:       ~/.config/rofi/nord.rasi
+
