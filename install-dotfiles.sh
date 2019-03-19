@@ -13,4 +13,5 @@ mkdir -p ~/.local/bin
 _ln i3 ~/.config/i3
 _ln rofi ~/.config/rofi
 _ln xinitrc ~/.xinitrc
+_ln zprofile ~/.zprofile
 
