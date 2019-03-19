@@ -11,5 +11,15 @@ if ! zgen saved; then
 
   zgen load zsh-users/zsh-completions
 
+  zgen load chrissicool/zsh-256color
+
   zgen save
 fi
+
+zstyle ':prezto:*:*' color 'yes'
+
+# == dircolors ==
+#
+eval $(dircolors ${HOME}/.config/dircolors/config)
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
