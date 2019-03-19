@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+udiskie -2 --no-automount --smart-tray --notify
+
