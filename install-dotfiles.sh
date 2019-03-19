@@ -24,4 +24,5 @@ _ln rofi ${cfg}/rofi
 _ln xinitrc ~/.xinitrc
 _ln zprofile ~/.zprofile
 _ln zshrc ~/.zshrc
+_ln zsh/zshrc.d ~/.zshrc.d
 
