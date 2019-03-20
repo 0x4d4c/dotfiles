@@ -22,6 +22,7 @@ _ln git/config ~/.gitconfig
 _ln i3 ${cfg}/i3
 _ln rofi ${cfg}/rofi
 _ln xinitrc ~/.xinitrc
+_ln Xresources ~/.Xresources
 _ln zprofile ~/.zprofile
 _ln zshrc ~/.zshrc
 _ln zsh/zshrc.d ~/.zshrc.d
