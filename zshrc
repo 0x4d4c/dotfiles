@@ -10,6 +10,7 @@ if ! zgen saved; then
   zgen prezto history-substring-search
 
   zgen load zsh-users/zsh-completions
+  zgen load zsh-users/zsh-syntax-highlighting
   zgen load aperezdc/virtualz
 
   zgen load chrissicool/zsh-256color
