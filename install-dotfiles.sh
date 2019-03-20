@@ -24,7 +24,7 @@ _ln rofi ${cfg}/rofi
 _ln xfce/xfce-terminal/terminalrc ${cfg}/xfce4/terminal/terminalrc
 _ln xinitrc ~/.xinitrc
 _ln Xresources ~/.Xresources
-_ln zprofile ~/.zprofile
-_ln zshrc ~/.zshrc
+_ln zsh/zprofile ~/.zprofile
+_ln zsh/zshrc ~/.zshrc
 _ln zsh/zshrc.d ~/.zshrc.d
 
