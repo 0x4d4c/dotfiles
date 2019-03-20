@@ -1,6 +1,7 @@
 
+# == zgen ==
+#
 source "${HOME}/.zgen/zgen.zsh"
-
 if ! zgen saved; then
   echo 'Generating zgen config...'
   zgen prezto
