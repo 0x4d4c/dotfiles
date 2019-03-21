@@ -14,6 +14,8 @@ if ! zgen saved; then
   ln -snf ${HOME}/.zshrc.d/prompt.zsh ${HOME}/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions/prompt_0x4d4c_setup
   zgen prezto prompt theme '0x4d4c'
 
+  zgen load zsh-users/zsh-autosuggestions
+
   zgen load zsh-users/zsh-completions
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load aperezdc/virtualz
@@ -29,6 +31,12 @@ zstyle ':prezto:*:*' color 'yes'
 #
 eval $(dircolors ${HOME}/.config/dircolors/config)
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
+# == completion/autosuggestion ==
+#
+setopt hash_list_all
+setopt completeinword
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=008'
 
 # == aliases ==
 #
