@@ -10,6 +10,10 @@ if ! zgen saved; then
   zgen prezto gpg
   zgen prezto history-substring-search
 
+  zgen load ${HOME}/.zshrc.d/prompt.zsh
+  ln -snf ${HOME}/.zshrc.d/prompt.zsh ${HOME}/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions/prompt_0x4d4c_setup
+  zgen prezto prompt theme '0x4d4c'
+
   zgen load zsh-users/zsh-completions
   zgen load zsh-users/zsh-syntax-highlighting
   zgen load aperezdc/virtualz
