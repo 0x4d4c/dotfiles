@@ -4,28 +4,30 @@
 source "${HOME}/.zgen/zgen.zsh"
 if ! zgen saved; then
   echo 'Generating zgen config...'
+  # prezto options
+  zgen prezto '*:*' color 'yes'
+  zgen prezto 'history-substring-search:color' found 'fg=yellow,bold,underline'
+
   zgen prezto
   zgen prezto archive
   zgen prezto git
   zgen prezto gpg
-  zgen prezto history-substring-search
 
   zgen load ${HOME}/.zshrc.d/prompt.zsh
   ln -snf ${HOME}/.zshrc.d/prompt.zsh ${HOME}/.zgen/sorin-ionescu/prezto-master/modules/prompt/functions/prompt_0x4d4c_setup
   zgen prezto prompt theme '0x4d4c'
 
-  zgen load zsh-users/zsh-autosuggestions
-
   zgen load zsh-users/zsh-completions
-  zgen load zsh-users/zsh-syntax-highlighting
   zgen load aperezdc/virtualz
 
   zgen load chrissicool/zsh-256color
+  zgen load zsh-users/zsh-autosuggestions
+
+  zgen prezto syntax-highlighting
+  zgen prezto history-substring-search
 
   zgen save
 fi
-
-zstyle ':prezto:*:*' color 'yes'
 
 # == dircolors ==
 #
@@ -37,6 +39,18 @@ zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 setopt hash_list_all
 setopt completeinword
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=008'
+
+# == history ==
+#
+export HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+setopt histignorealldups
+setopt histignorespace
+setopt hist_expire_dups_first
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt no_share_history
 
 # == aliases ==
 #
