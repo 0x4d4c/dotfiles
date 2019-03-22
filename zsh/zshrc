@@ -18,6 +18,7 @@ if ! zgen saved; then
   zgen prezto prompt theme '0x4d4c'
 
   zgen load zsh-users/zsh-completions
+  zgen load hcgraf/zsh-sudo
   zgen load aperezdc/virtualz
 
   zgen load chrissicool/zsh-256color
