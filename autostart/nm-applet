@@ -1,0 +1,4 @@
+#!/bin/sh -eu
+
+sleep 2 && nm-applet &
+
