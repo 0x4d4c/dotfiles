@@ -1,4 +1,4 @@
-#!/bin/bash -u
+#!/bin/bash -eu
 
 dots="$(dirname $(readlink -e $0))"
 cfg="${HOME}/.config"
@@ -14,9 +14,17 @@ else
 fi
 
 mkdir -p ~/.config
-mkdir -p ~/.local/bin
+
+userbin="${HOME}/.local/bin"
+if [ -d "${userbin}" ]; then
+  if [ -n "$(ls -A "${userbin}")" ]; then
+    mv ${userbin}/* bin/
+  fi
+  rmdir "${userbin}"
+fi
 
 _ln autostart ${cfg}/autostart
+_ln bin "${userbin}"
 _ln dircolors ${cfg}/dircolors
 _ln git/config ~/.gitconfig
 _ln i3 ${cfg}/i3
