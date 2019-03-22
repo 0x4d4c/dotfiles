@@ -45,6 +45,8 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=008'
 export HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
+export HSTR_CONFIG='hicolor'
+bindkey -s '\C-r' '\eqhh\n'
 setopt histignorealldups
 setopt histignorespace
 setopt hist_expire_dups_first
