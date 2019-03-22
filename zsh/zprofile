@@ -1,2 +1,6 @@
+if [ -d "${HOME}/.local/bin" ]; then
+  PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 [ -z "${DISPLAY}" -a "$(fgconsole)" -eq 1 ] && exec startx
 
