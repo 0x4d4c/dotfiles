@@ -16,7 +16,7 @@ fi
 mkdir -p ~/.config
 
 userbin="${HOME}/.local/bin"
-if [ -d "${userbin}" ]; then
+if [ -d "${userbin}" -a ! -s "${userbin}" ]; then
   if [ -n "$(ls -A "${userbin}")" ]; then
     mv ${userbin}/* bin/
   fi
