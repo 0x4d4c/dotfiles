@@ -172,7 +172,7 @@ bar {
 bindsym $mod+Mod1+l exec "i3lock -d -c 000000"
 
 # Display settings
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 -steps 50
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 -steps 50
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 
 exec --no-startup-id /bin/run-parts ~/.config/autostart/
