@@ -26,6 +26,7 @@ fi
 _ln autostart ${cfg}/autostart
 _ln bin "${userbin}"
 _ln dircolors ${cfg}/dircolors
+_ln dunst ${cfg}/dunst
 _ln git/config ~/.gitconfig
 _ln i3 ${cfg}/i3
 _ln rofi ${cfg}/rofi
