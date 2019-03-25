@@ -29,6 +29,7 @@ _ln dircolors ${cfg}/dircolors
 _ln dunst ${cfg}/dunst
 _ln git/config ~/.gitconfig
 _ln i3 ${cfg}/i3
+_ln polybar ${cfg}/polybar
 _ln rofi ${cfg}/rofi
 _ln xfce/xfce-terminal/terminalrc ${cfg}/xfce4/terminal/terminalrc
 _ln xinitrc ~/.xinitrc
