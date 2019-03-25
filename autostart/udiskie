@@ -1,5 +1,5 @@
 #!/bin/sh
 set -eu
 
-udiskie -2 --no-automount --smart-tray --notify
+sleep 2 && exec udiskie -2 --no-automount --smart-tray --notify
 
