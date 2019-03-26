@@ -114,7 +114,7 @@ type = internal/date
 interval = 5
 date = %Y-%m-%d
 time = %H:%M
-label = %date% %time%
+label =   %date% %time%
 
 
 [module/pulseaudio]
@@ -181,6 +181,7 @@ poll-interval = 5
 
 label-charging = "  %percentage%%"
 label-discharging = "%percentage%%"
+label-full = "  %percentage%%"
 
 format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
