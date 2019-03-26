@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/bash -eu
 
-sleep 2 && nm-applet &
+sleep 2 && exec nm-applet &
 

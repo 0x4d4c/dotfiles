@@ -172,4 +172,5 @@ bindsym $mod+Mod1+l exec "i3lock -d -c 000000"
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 
-exec --no-startup-id /bin/run-parts ~/.config/autostart/
+exec --no-startup-id ~/.dotfiles/autostart/autostart.sh
+

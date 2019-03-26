@@ -1,4 +1,4 @@
 #!/bin/sh -eu
 
-dunst -config "${HOME}/.config/dunst/config"
+exec dunst -config "${HOME}/.config/dunst/config" &
 
