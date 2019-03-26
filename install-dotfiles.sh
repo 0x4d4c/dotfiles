@@ -23,11 +23,14 @@ if [ -d "${userbin}" -a ! -s "${userbin}" ]; then
   rmdir "${userbin}"
 fi
 
+mkdir -p "${HOME}/.cache/greenclip"
+
 _ln autostart ${cfg}/autostart
 _ln bin "${userbin}"
 _ln dircolors ${cfg}/dircolors
 _ln dunst ${cfg}/dunst
 _ln git/config ~/.gitconfig
+_ln greenclip/config ${cfg}/greenclip.cfg
 _ln i3 ${cfg}/i3
 _ln polybar ${cfg}/polybar
 _ln rofi ${cfg}/rofi

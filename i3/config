@@ -171,6 +171,8 @@ bindsym $mod+Mod1+l exec "i3lock -d -c 000000"
 # Display settings
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+# Clipboard
+bindsym Control+Mod1+h exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 exec --no-startup-id ~/.dotfiles/autostart/autostart.sh
 
