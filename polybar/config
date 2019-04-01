@@ -7,9 +7,9 @@ foreground-alt = #ebcb8b
 ;secondary = #e60053
 alert = #bf616a
 
-[bar/bar1]
+[bar/internal]
 bottom = true
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = DP-1-1-2
 width = 100%
 height = 17
 fixed-center = false
@@ -45,6 +45,46 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 
+[bar/external]
+bottom = true
+;monitor = ${env:MONITOR:HDMI-1}
+monitor = eDP-1-1
+width = 100%
+height = 17
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+;border-color = 
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = Font Awesome 5 Pro:pixelsize=10;1
+
+modules-left = i3
+modules-center = 
+modules-right = filesystem memory swap cpu battery date 
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+
 [module/filesystem]
 type = internal/fs
 interval = 15
@@ -58,7 +98,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -114,7 +154,7 @@ type = internal/date
 interval = 5
 date = %Y-%m-%d
 time = %H:%M
-label = %date% %time%
+label =   %date% %time%
 
 
 [module/pulseaudio]
@@ -181,6 +221,7 @@ poll-interval = 5
 
 label-charging = "  %percentage%%"
 label-discharging = "%percentage%%"
+label-full = "  %percentage%%"
 
 format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
