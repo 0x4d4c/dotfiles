@@ -163,6 +163,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Set desktop background
+exec --no-startup-id hsetroot -solid "#2e3440"
+
 # Start status/workspace bar
 exec_always --no-startup-id ~/.local/bin/start-polybar
 
