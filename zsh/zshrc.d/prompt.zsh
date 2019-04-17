@@ -28,7 +28,11 @@ function _prompt_segment_git() {
     git_status=git-info
   fi
   if ${git_status}; then
-    prompt_info_line+="%{%K{yellow}%}%{%F{black}%} ${(e)git_info[prompt]}"
+    local git_root="$(command git rev-parse --show-toplevel 2> /dev/null)"
+    if [[ -n "${git_root}" ]]; then
+      git_root="$(basename ${git_root})"
+    fi
+    prompt_info_line+="%{%K{yellow}%}%{%F{black}%} ${git_root} ${(e)git_info[prompt]}"
     echo $git_info[status]
   fi
 }
