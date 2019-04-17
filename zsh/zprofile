@@ -2,5 +2,8 @@ if [ -d "${HOME}/.local/bin" ]; then
   PATH="${HOME}/.local/bin:${PATH}"
 fi
 
+export VISUAL='/usr/bin/vim'
+export EDITOR="${VISUAL}"
+
 [ -z "${DISPLAY}" -a "$(fgconsole)" -eq 1 ] && exec startx
 

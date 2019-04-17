@@ -34,6 +34,7 @@ _ln greenclip/config ${cfg}/greenclip.cfg
 _ln i3 ${cfg}/i3
 _ln polybar ${cfg}/polybar
 _ln rofi ${cfg}/rofi
+_ln selected_editor ~/.selected_editor
 _ln xfce/xfce-terminal/terminalrc ${cfg}/xfce4/terminal/terminalrc
 _ln xinitrc ~/.xinitrc
 _ln Xresources ~/.Xresources
