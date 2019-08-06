@@ -25,6 +25,8 @@ fi
 
 mkdir -p "${HOME}/.cache/greenclip"
 
+_ln abcde ${cfg}/abcde
+_ln abcde/abcde.conf ~/.abcde.conf
 _ln autostart ${cfg}/autostart
 _ln bin "${userbin}"
 _ln dircolors ${cfg}/dircolors
