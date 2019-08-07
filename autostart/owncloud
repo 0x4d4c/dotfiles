@@ -1,0 +1,4 @@
+#!/bin/bash -eu
+
+sleep 2 && exec owncloud &
+
