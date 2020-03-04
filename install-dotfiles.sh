@@ -1,14 +1,16 @@
 #!/bin/bash -eu
 
-dots="$(dirname $(readlink -e $0))"
-cfg="${HOME}/.config"
+export dots="$(dirname $(readlink -e $0))"
+export cfg="${HOME}/.config"
 
 function _ln() {
   ln -snf "${dots}/$1" "$2"
 }
 
+mkdir -p "${dots}/repos"
+
 if [ ! -d "${HOME}/.zgen" ]; then
-  git clone  https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+  git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
 else
   zsh -c "source ${HOME}/.zgen/zgen.zsh && zgen selfupdate"
 fi
@@ -45,3 +47,4 @@ _ln zsh/zprofile ~/.zprofile
 _ln zsh/zshrc ~/.zshrc
 _ln zsh/zshrc.d ~/.zshrc.d
 
+"${dots}/scripts/install-tex-packages.sh"
