@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+import argparse
+import subprocess
+import sys
+from itertools import zip_longest, chain
+from pathlib import Path
+from subprocess import run, DEVNULL, PIPE
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Merge the pages of two pdf files.')
+    parser.add_argument('pdf1', type=Path, help='first input pdf')
+    parser.add_argument('pdf2', type=Path, help='second input pdf')
+    parser.add_argument('output_pdf', type=Path, help='output pdf')
+    args = parser.parse_args()
+
+    try:
+        run(('qpdf', '--version'), check=True, stdout=DEVNULL)
+    except FileNotFoundError:
+        print('Error: qpdf not found. Make sure it is installed and in your PATH.', file=sys.stderr)
+        return 2
+
+    return merge_pdfs(args.pdf1, args.pdf2, args.output_pdf)
+
+
+def merge_pdfs(pdf1: Path, pdf2: Path, outfile: Path):
+    """Merge the pages of the two given PDF files.
+
+    Args:
+        pdf1: First input PDF
+        pdf2: Second input PDF
+        outfile: Output PDF
+    """
+    npages1 = get_pdf_pages(pdf1)
+    npages2 = get_pdf_pages(pdf2)
+
+    pages_pdf1 = ((str(pdf1), str(i+1)) for i in range(npages1))
+    pages_pdf2 = ((str(pdf2), str(i+1)) for i in range(npages2))
+
+    pages = (p for p in chain.from_iterable(zip_longest(pages_pdf1, pages_pdf2)) if p is not None)
+    pages = (p for p in chain.from_iterable(pages))
+
+    qpdf_cmd = ['qpdf', '--empty', '--pages']
+    qpdf_cmd.extend(pages)
+    qpdf_cmd.extend(('--', outfile))
+
+    try:
+        res = run(qpdf_cmd, check=True, stdout=PIPE, stderr=PIPE)
+        return res.returncode
+    except subprocess.CalledProcessError as err:
+        print(f'qpdf error: {err.stderr.strip().decode()}', file=sys.stderr)
+        return err.returncode
+
+
+
+def get_pdf_pages(pdf: Path) -> int:
+    """Return the number of pages in the given PDF."""
+    res = run(('qpdf', '--show-npages', pdf), check=True, stdout=subprocess.PIPE)
+    npages = int(res.stdout.strip())
+    return npages
+
+
+if __name__ == '__main__':
+    sys.exit(main())
