@@ -7,11 +7,13 @@ from pathlib import Path
 from subprocess import run, DEVNULL, PIPE
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description='Merge the pages of two pdf files.')
     parser.add_argument('pdf1', type=Path, help='first input pdf')
     parser.add_argument('pdf2', type=Path, help='second input pdf')
     parser.add_argument('output_pdf', type=Path, help='output pdf')
+    parser.add_argument('-s', '--show-output', action='store_true',
+                        help='open the output PDF after generating it')
     args = parser.parse_args()
 
     try:
@@ -20,10 +22,22 @@ def main():
         print('Error: qpdf not found. Make sure it is installed and in your PATH.', file=sys.stderr)
         return 2
 
-    return merge_pdfs(args.pdf1, args.pdf2, args.output_pdf)
+    try:
+        res = merge_pdfs(args.pdf1, args.pdf2, args.output_pdf)
+    except Exception as err:
+        print(err, file=sys.stderr)
+        return -1
+
+    if args.show_output:
+        try:
+            res = open_output_pdf(args.output_pdf)
+        except Exception as err:
+            print(err, file=sys.stderr)
+            return -2
+    return res
 
 
-def merge_pdfs(pdf1: Path, pdf2: Path, outfile: Path):
+def merge_pdfs(pdf1: Path, pdf2: Path, outfile: Path) -> int:
     """Merge the pages of the two given PDF files.
 
     Args:
@@ -52,12 +66,25 @@ def merge_pdfs(pdf1: Path, pdf2: Path, outfile: Path):
         return err.returncode
 
 
-
 def get_pdf_pages(pdf: Path) -> int:
     """Return the number of pages in the given PDF."""
     res = run(('qpdf', '--show-npages', pdf), check=True, stdout=subprocess.PIPE)
     npages = int(res.stdout.strip())
     return npages
+
+
+def open_output_pdf(pdf: Path) -> int:
+    """Open a file using the standard application.
+
+    Args:
+        pdf The PDF file to open
+    """
+    try:
+        res = subprocess.run(('xdg-open', pdf), check=True)
+        return res.returncode
+    except subprocess.CalledProcessError as err:
+        print(f'xdg-open error: {err.stderr.strip().decode()}', file=sys.stderr)
+        return err.returncode
 
 
 if __name__ == '__main__':
