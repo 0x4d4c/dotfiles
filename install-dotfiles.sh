@@ -37,6 +37,7 @@ _ln git/config ~/.gitconfig
 _ln greenclip/config ${cfg}/greenclip.cfg
 _ln gtk/gtkrc-2.0 ~/.gtkrc-2.0
 _ln i3 ${cfg}/i3
+_ln nvim ${cfg}/nvim
 _ln polybar ${cfg}/polybar
 _ln python/pypirc ~/.pypirc
 _ln rofi ${cfg}/rofi
