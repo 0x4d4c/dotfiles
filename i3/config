@@ -171,6 +171,8 @@ exec_always --no-startup-id ~/.local/bin/start-polybar
 
 bindsym $mod+Mod1+l exec "i3lock -d -c 000000"
 
+for_window [class="Gsimplecal" instance="gsimplecal"] floating enable
+
 # Display settings
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
